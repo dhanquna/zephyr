@@ -32,6 +32,19 @@ config SOC_ATMEL_SAM_EXT_MAINCK
 
 	  Says n here will use the internal fast RC oscillator running at 12 MHz.
 
+config SOC_ATMEL_SAM_EXT_MAINCK_BYPASS_XTAL_OSC
+		bool "Bypass main clock crystal oscillator"
+		depends on SOC_ATMEL_SAM_EXT_MAINCK
+		default n
+		help
+		  An external clock signal of  supported frequency signal is applied to the
+		  XIN pin (Main oscillator in bypass mode).
+	
+		  Says n if you want to connect a crystal between XIN and XOUT. The crystal 
+		  used here can be from 3 to 20 MHz.
+	
+		  Says n here will enable the main crystal oscillator.
+
 menu "PLL A"
 
 config SOC_ATMEL_SAM_PLLA_MULA
